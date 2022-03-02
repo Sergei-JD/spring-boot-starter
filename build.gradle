@@ -4,6 +4,8 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
+apply from: './versions.gradle'
+
 group 'com.boot'
 version '1.0-SNAPSHOT'
 
@@ -17,8 +19,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.postgresql:postgresql'
     implementation 'org.flywaydb:flyway-core'
+    implementation 'org.projectlombok:lombok:1.18.20'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation "org.testcontainers:postgresql:${versions.postgresContainer}"
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
